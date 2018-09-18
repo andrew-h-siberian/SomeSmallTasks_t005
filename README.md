@@ -1,5 +1,5 @@
 # SomeSmallTasks_t005
-Chess board built without DOM traversing.
+Chess board built with (clean) Javascript without DOM traversing.
 На одном из интернет форумов меня попросили помочь с заданием полученным
 на курсах по web-программированию, причем на этапе, когда с DOM ученики
 еще не работали. Надо было отрисовать шахматную доску. Я придумал простенький
