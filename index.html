@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Page Title</title>
+    </head>
+    <body>
+        <ul>
+
+            <script>
+                var white = "<li class='white'>",
+                    black = "<li class='black'>",
+                    letterPre = "<li class='letter'>",
+                    numberPre = "<li class='number'>",
+                    liClose = "</li>",
+                    //pathToImages = 'source_images/';
+                    pathToImages = 'https://andrew-h-siberian.000webhostapp.com/';
+                    R = '<img src="' + pathToImages + 'Chess_rlt60.png" alt="R" height="50" width="50">',
+                    N = '<img src="' + pathToImages + 'Chess_nlt60.png" alt="N" height="50" width="50">',
+                    B = '<img src="' + pathToImages + 'Chess_blt60.png" alt="B" height="50" width="50">',
+                    Q = '<img src="' + pathToImages + 'Chess_qlt60.png" alt="Q" height="50" width="50">',
+                    K = '<img src="' + pathToImages + 'Chess_klt60.png" alt="K" height="50" width="50">',
+                    P = '<img src="' + pathToImages + 'Chess_plt60.png" alt="P" height="50" width="50">',
+                    r = '<img src="' + pathToImages + 'Chess_rdt60.png" alt="r" height="50" width="50">',
+                    n = '<img src="' + pathToImages + 'Chess_ndt60.png" alt="n" height="50" width="50">',
+                    b = '<img src="' + pathToImages + 'Chess_bdt60.png" alt="b" height="50" width="50">',
+                    q = '<img src="' + pathToImages + 'Chess_qdt60.png" alt="q" height="50" width="50">',
+                    k = '<img src="' + pathToImages + 'Chess_kdt60.png" alt="k" height="50" width="50">',
+                    p = '<img src="' + pathToImages + 'Chess_pdt60.png" alt="p" height="50" width="50">',
+                    position = [
+                    [r, n, b, q, k, b, n, r],
+                    [p, p, p, p, p, p, p, p],
+                    [0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, P, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0],
+                    [P, P, P, P, 0, P, P, P],
+                    [R, N, B, Q, K, B, N, R],
+                    ];
+                
+                //function getting a figure from an array 'position' according to passed coordinates
+                function getFigure(x, y) {
+                    //return figure only if it's not zero in that position
+                    if(position[y][x]){
+                        return position[y][x];
+                    } else {
+                        return '';
+                    }
+                }
+
+                for(var v = 8; v >= 0; v--) {
+                    
+                    for (var h = 0; h < 9; h++) {
+
+                        //h === 0 when it's a first "column" with numbers (numeration)
+                        if (h === 0 && v !== 0) {
+                            //numbers
+                            document.write(numberPre + v + liClose);
+                        }
+
+                        //white field
+                        else if (v !== 0 && (h + v) % 2 !== 0) {
+                            document.write(white + getFigure(h-1, 8-(v)) + liClose);
+                        }
+
+                        //black field
+                        else if (v !== 0) {
+                            document.write(black + getFigure(h-1, 8-(v)) + liClose);
+                        }
+
+                        //empty div for empty space in the bottom left corner
+                        else if (h === 0) {
+                            document.write(numberPre + liClose);
+                        }
+
+                        else {
+                            //letters
+                            document.write(letterPre + "abcdefgh".charAt(h-1) + liClose);
+                        }
+
+                    }//end of loop h (horizontal)
+                    
+                }//end of loop v (vertical)
+            </script>
+        
+        </ul>       
+    </body>
+</html>
